@@ -1,10 +1,10 @@
-
 package com.example.inventory.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+
 
 @Entity(tableName = "data")
 data class User(
@@ -24,6 +24,3 @@ data class User(
     @SerializedName("url")
     val userUrl: String,
 )
-/**
- * Returns the passed in price in currency format.
- */
