@@ -8,54 +8,6 @@
     android:layout_height="64dp"
     android:descendantFocusability="blocksDescendants">
 
-    <!--<TextView
-        android:id="@+id/item_id"
-        style="@style/Widget.Inventory.Header"
-        android:fontFamily="sans-serif"
-        android:layout_marginStart="8dp"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/item_name"
-        tools:text="1"
-        />
-    <TextView
-        android:id="@+id/item_name"
-        style="@style/Widget.Inventory.ListItemTextView"
-        android:layout_marginStart="@dimen/margin_between_elements"
-        android:fontFamily="sans-serif"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintEnd_toStartOf="@+id/item_price"
-        app:layout_constraintStart_toStartOf="@id/item_id"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Cogs and Widgets" />
-
-    <TextView
-        android:id="@+id/item_price"
-        style="@style/Widget.Inventory.ListItemTextView"
-        android:layout_below="@+id/item_name"
-        android:layout_marginStart="@dimen/margin_between_elements"
-        android:fontFamily="sans-serif-medium"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/item_quantity"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/item_name"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="$4.99" />
-
-    <TextView
-        android:id="@+id/item_quantity"
-        style="@style/Widget.Inventory.ListItemTextView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_between_elements"
-        android:fontFamily="sans-serif-medium"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/item_price"
-        tools:text="3" />
-    -->
 
     <TextView
         android:id="@+id/item_id"

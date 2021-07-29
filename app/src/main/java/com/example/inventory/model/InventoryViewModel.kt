@@ -6,14 +6,10 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.inventory.data.User
 import com.example.inventory.data.UserDao
-import com.example.inventory.internet.UserService
-import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
+//lateinit var resultDemo1: List<User>
 class InventoryViewModel(private val userDao: UserDao) : ViewModel() {
 
     val allUsers: LiveData<List<User>> = userDao.getUsers().asLiveData()
@@ -31,7 +27,9 @@ class InventoryViewModel(private val userDao: UserDao) : ViewModel() {
         val updatedUser = getUpdatedUserEntry(id, userLogin, userType, userUrl)
         updateUser(updatedUser)
     }
-
+    fun getUser(id: Int): Flow<User> {
+        return userDao.getUser(id)
+    }
     private fun updateUser(user: User) {
         viewModelScope.launch {
             userDao.update(user)
@@ -95,6 +93,8 @@ class InventoryViewModel(private val userDao: UserDao) : ViewModel() {
         )
     }
     //Service
+    //
+    /*
     val logging = HttpLoggingInterceptor().apply {
         setLevel(HttpLoggingInterceptor.Level.BODY)
     }
@@ -109,17 +109,19 @@ class InventoryViewModel(private val userDao: UserDao) : ViewModel() {
         .client(client)
         .build()
     val service = retrofit.create(UserService::class.java)
+    private lateinit var result: List<User>
 
     fun getAllUser() {
         Log.d("check"," getAllUser")
         viewModelScope.async {
             Log.d("check ","size")
-            val result = service.getAllUsers()
+            result = service.getAllUsers()
+            //resultDemo1 = result
             for (i in result){
                 insertUser(i)
             }
         }
-    }
+    }*/
 }
 
 class InventoryViewModelFactory(private val userDao: UserDao) : ViewModelProvider.Factory {

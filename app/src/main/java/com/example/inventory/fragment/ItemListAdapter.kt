@@ -10,9 +10,10 @@ import com.example.inventory.data.User
 import com.example.inventory.databinding.ItemListItemBinding
 
 
-class ItemListAdapter(private val onItemClicked: (User) -> Unit) :
+class ItemListAdapter(
+            private val onItemClicked: (user1: User) -> Unit,
+            private val actionIntent: (url: String) -> Unit) :
     ListAdapter<User, ItemListAdapter.ItemViewHolder>(DiffCallback) {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
             ItemListItemBinding.inflate(
@@ -22,24 +23,30 @@ class ItemListAdapter(private val onItemClicked: (User) -> Unit) :
             )
         )
     }
-
+    fun putUser(id: Int): User{
+        return getItem(id)
+    }
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val current = getItem(position)
         holder.itemView.setOnClickListener {
             onItemClicked(current)
         }
         holder.bind(current)
-    }
 
+        //actionIntent
+    }
     class ItemViewHolder(private var binding: ItemListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(user: User) {
             binding.itemId.text = user.id.toString()
             binding.itemLogin.text = user.userLogin
             binding.itemType.text = user.userType
             binding.itemUrl.text = user.userUrl
+            binding.itemUrl.setOnClickListener {
+                //adapter
+            }
         }
+
     }
 
     companion object {
