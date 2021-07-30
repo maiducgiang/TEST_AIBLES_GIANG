@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:descendantFocusability="blocksDescendants">
+
+
+    <TextView
+        android:id="@+id/item_id"
+        style="@style/Widget.Inventory.ListItemTextView"
+        tools:text="1"
+        android:layout_width="48dp"
+        android:layout_height="64dp"
+        android:textAlignment="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_login"
+        />
+    <TextView
+        android:id="@+id/item_login"
+        style="@style/Widget.Inventory.ListItemTextView"
+        android:fontFamily="sans-serif"
+        android:layout_width="300dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        tools:text="Cogs and Widgets"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/item_id"
+        />
+
+    <TextView
+        android:id="@+id/item_type"
+        android:layout_width="300dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        tools:text="$4.99"
+        app:layout_constraintTop_toBottomOf="@id/item_login"
+        app:layout_constraintLeft_toRightOf="@id/item_id" />
+
+    <TextView
+        android:id="@+id/item_url"
+        android:layout_width="300dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        tools:text="3"
+        app:layout_constraintTop_toBottomOf="@id/item_type"
+        app:layout_constraintLeft_toRightOf="@id/item_id"/>
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_marginTop="@dimen/margin_between_elements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_url" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
