@@ -15,7 +15,7 @@ class ItemListAdapter(
             private val actionIntent: (url: String) -> Unit) :
     ListAdapter<User, ItemListAdapter.ItemViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        return ItemViewHolder(
+        return ItemViewHolder(actionIntent,
             ItemListItemBinding.inflate(
                 LayoutInflater.from(
                     parent.context
@@ -33,9 +33,8 @@ class ItemListAdapter(
         }
         holder.bind(current)
 
-        //actionIntent
     }
-    class ItemViewHolder(private var binding: ItemListItemBinding) :
+    class ItemViewHolder(private val actionIntent: (url: String) -> Unit,private var binding: ItemListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
             binding.itemId.text = user.id.toString()
@@ -43,10 +42,9 @@ class ItemListAdapter(
             binding.itemType.text = user.userType
             binding.itemUrl.text = user.userUrl
             binding.itemUrl.setOnClickListener {
-                //adapter
+                actionIntent(binding.itemUrl.text.toString())
             }
         }
-
     }
 
     companion object {
